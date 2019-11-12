@@ -10,12 +10,12 @@ app.get('/',(req,res)=>{
 
 
 /**
- * @api {get} /characters Request User information
+ * @api {get} /characters Get List of Characters
  * @apiName GetCharacterList
  * @apiGroup Character
  *
  *
- * @apiSuccess {String} name Name of Character.
+ * @apiSuccess {Number} count Count of Characters.
  */
 
 
@@ -29,14 +29,19 @@ app.get('/characters',(req,res)=>{
 
 
 /**
- * @api {post} /characters Create Character
- * @apiName CreateCharacter
- * @apiGroup Character
- * @apiParam (Character) {Number} id Users unique ID.
- *
- *
- * @apiSuccess {String} name Name of Character.
- */
+* @api {post} /characters Create Character
+* @apiName CreateCharacter
+* @apiGroup Character
+* @apiParam (Character JSON properties) {String} name Full Character Name.
+* @apiParam (Character JSON properties) {String} gender Gender of Character.
+* @apiParamExample {json} Request Body Example:
+*     {
+*       "name":"John Smith",
+*       "gender":"Male"
+*     }
+*
+*
+*/
 
 
 /* CHARACTER CRUD API */
@@ -47,6 +52,16 @@ app.post('/characters',(req,res)=>{
   })
 
 })
+
+/**
+ * @api {get} /characters/name/:name Get Character By Name
+ * @apiName getCharacterByName
+ * @apiGroup Character
+ * @apiParam (Params) {String} name Character Full Name in database.
+ * @apiParamExample {json} Request URL:
+ *    /characters/name/Jon%20Snow
+ *
+ */
 
 app.get('/characters/name/:name',(req,res)=>{
  //READS Character
@@ -62,6 +77,17 @@ app.get('/characters/name/:name',(req,res)=>{
 
 
 
+/**
+ * @api {get} /characters/id/:id Get Character By ID
+ * @apiName getCharacterByID
+ * @apiGroup Character
+ * @apiParam (Params) {String} id Character ID in database.
+ * @apiParamExample {json} Request URL:
+ *    /characters/id/12345789
+ *
+ */
+
+
 app.get('/characters/id/:id',(req,res)=>{
  //READS Character
  let query = {
@@ -74,6 +100,20 @@ app.get('/characters/id/:id',(req,res)=>{
 
 })
 
+
+/**
+ * @api {put} /characters/id/:id Update Character by ID
+ * @apiName updateCharacterById
+ * @apiGroup Character
+ * @apiParam (Params) {String} id Character ID in database.
+ * @apiParamExample {json} Request URL:
+ *    /characters/id/12345789
+ * @apiParamExample {json} Request Body Example:
+ *     {
+ *       "name":"Not John Smith",
+ *     }
+ *
+ */
 
 app.put('/characters/id/:id',(req,res)=>{
  //UPDATE Character
@@ -90,6 +130,18 @@ app.put('/characters/id/:id',(req,res)=>{
  })
 
 })
+
+
+
+/**
+ * @api {delete} /characters/id/:id Delete Character by ID
+ * @apiName deleteCharacterById
+ * @apiGroup Character
+ * @apiParam (Params) {String} id Character ID in database.
+ * @apiParamExample {json} Request URL:
+ *    /characters/id/12345789
+ *
+ */
 
 app.delete('/characters/id/:id',(req,res)=>{
  //DELETE Character
