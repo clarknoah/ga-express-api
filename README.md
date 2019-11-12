@@ -10,7 +10,9 @@ This API enables the creation, reading, updating, and deleting of Characters
 ## Installation Instructions
 
 > Install API
+
 `git clone https://github.com/clarknoah/ga-express-api.git`
 
 > Run Server
+
 `node src/index.js`
