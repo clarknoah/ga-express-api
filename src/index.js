@@ -29,9 +29,10 @@ app.get('/characters',(req,res)=>{
 
 
 /**
- * @api {post} /characters Request User information
+ * @api {post} /characters Create Character
  * @apiName CreateCharacter
  * @apiGroup Character
+ * @apiParam (Character) {Number} id Users unique ID.
  *
  *
  * @apiSuccess {String} name Name of Character.
