@@ -156,7 +156,13 @@ app.delete('/characters/id/:id',(req,res)=>{
 })
 
 
+app.set("port", process.env.PORT || 3000);
 
-app.listen(3000, ()=>{
-  console.log("Running on 300");
-})
+app.listen(app.get("port"), () => {
+  console.log(`✅ PORT: ${app.get("port")} 🌟`);
+});
+
+
+// app.listen(3000, ()=>{
+//   console.log("Running on 300");
+// })

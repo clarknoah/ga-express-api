@@ -1,7 +1,7 @@
 {
   "name": "ASOIAF API",
   "version": "0.1.0",
-  "description": "apiDoc basic example",
-  "title": "Custom apiDoc browser title",
+  "description": "ASOIAF API Documentation",
+  "title": "ASOIAF API",
   "url" : "localhost:3000"
 }
