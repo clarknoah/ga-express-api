@@ -47,6 +47,7 @@ app.get('/characters',(req,res)=>{
 /* CHARACTER CRUD API */
 app.post('/characters',(req,res)=>{
   let obj = req.body;
+  console.log(obj);
   Character.create(obj).then((result)=>{
     res.send("Object Created Successfully");
   })
