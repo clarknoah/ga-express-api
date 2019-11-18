@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const Character = require("../db/model/Character.js");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser);
 
 app.use(express.static('doc'));
 
@@ -47,7 +50,7 @@ app.get('/characters',(req,res)=>{
 /* CHARACTER CRUD API */
 app.post('/characters',(req,res)=>{
   let obj = req.body;
-  console.log(req);
+  console.log(req.body);
   Character.create(obj).then((result)=>{
     res.send("Object Created Successfully");
   })
