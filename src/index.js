@@ -48,7 +48,7 @@ app.get('/characters',(req,res)=>{
 app.post('/characters',(req,res)=>{
   let obj = req.body;
   Character.create(obj).then((result)=>{
-    res.json(result);
+    res.send("Object Created Successfully");
   })
 
 })
