@@ -3,7 +3,9 @@ const app = express();
 const Character = require("../db/model/Character.js");
 const bodyParser = require("body-parser");
 
-app.use(bodyParser);
+app.use(bodyParser.urlencoded());
+
+app.use(bodyParser.json());
 
 app.use(express.static('doc'));
 
@@ -52,6 +54,7 @@ app.post('/characters',(req,res)=>{
   let obj = req.body;
   console.log(req.body);
   Character.create(obj).then((result)=>{
+    console.log(result);
     res.send("Object Created Successfully");
   })
 
@@ -160,7 +163,7 @@ app.delete('/characters/id/:id',(req,res)=>{
 })
 
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 app.listen(app.get("port"), () => {
   console.log(`✅ PORT: ${app.get("port")} 🌟`);
